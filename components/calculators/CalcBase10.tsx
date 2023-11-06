@@ -133,6 +133,11 @@ function CalcBase10() {
 	const handleMouseLeave = (): void => {
 		setNextDirectionAction("nextDirection_init");
 	  };
+    
+
+    //
+    //  function getAction  ////////////////////////
+    //
 
   function getAction(direction: Direction) {
     console.log("Click!!!");
@@ -167,22 +172,22 @@ function CalcBase10() {
     setCurrentAction(nextAction);
 
 
-  // Specify the path to the text file in the public folder currentAction
-  const filePath = './Actions/' + nextAction + '.tsx';
+    // Specify the path to the text file in the public folder currentAction
+    const filePath = './Actions/' + nextAction + '.tsx';
 
-  fetch(filePath)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch file content');
-      }
-      return response.text();
-    })
-    .then((text) => {
-      setFileContent(text);
-    })
-    .catch((error) => {
-      console.error('Error fetching file content:', error);
-    });
+    fetch(filePath)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch file content');
+        }
+        return response.text();
+      })
+      .then((text) => {
+        setFileContent(text);
+      })
+      .catch((error) => {
+        console.error('Error fetching file content:', error);
+      });
 
 
   }
