@@ -13,7 +13,9 @@
     "Direction_nine":"Action_operand_1_attach_nine",     
      "Direction_plus":"Action_init",
      "Direction_equal":"Action_init",
-     "Direction_clear":"Action_clear"
+     "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
+
   },
   "Action_operand_1_attach_zero":{
     "Direction_init":"Action_init",
@@ -29,7 +31,8 @@
     "Direction_nine":"Action_operand_1_attach_nine", 
      "Direction_plus":"Action_waiting_for_operand_2_for_plus",
      "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-     "Direction_clear":"Action_clear"
+     "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_1_attach_one":{
     "Direction_init":"Action_init_1",
@@ -45,7 +48,8 @@
     "Direction_nine":"Action_operand_1_attach_nine", 
      "Direction_plus":"Action_waiting_for_operand_2_for_plus",
      "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-     "Direction_clear":"Action_clear"
+     "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
 
   "Action_operand_1_attach_two":{
@@ -62,7 +66,8 @@
     "Direction_nine":"Action_operand_1_attach_nine", 
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_1_attach_three":{
     "Direction_init":"Action_init",
@@ -78,7 +83,8 @@
     "Direction_nine":"Action_operand_1_attach_nine",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_1_attach_four":{
     "Direction_init":"Action_init",
@@ -94,7 +100,8 @@
     "Direction_nine":"Action_operand_1_attach_nine",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_1_attach_five":{
     "Direction_init":"Action_init",
@@ -110,7 +117,8 @@
     "Direction_nine":"Action_operand_1_attach_nine",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_1_attach_six":{
     "Direction_init":"Action_init",
@@ -126,7 +134,8 @@
     "Direction_nine":"Action_operand_1_attach_nine",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_1_attach_seven":{
     "Direction_init":"Action_init",
@@ -142,7 +151,8 @@
     "Direction_nine":"Action_operand_1_attach_nine",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_1_attach_eight":{
     "Direction_init":"Action_init",
@@ -158,7 +168,8 @@
     "Direction_nine":"Action_operand_1_attach_nine",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_1_attach_nine":{
     "Direction_init":"Action_init",
@@ -174,7 +185,8 @@
     "Direction_nine":"Action_operand_1_attach_nine",  
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_warning_10__Second_operand_is_missing":{
     "Direction_init":"Action_init",
@@ -190,7 +202,8 @@
     "Direction_nine":"Action_operand_1_attach_nine",   
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_warning_10__Second_operand_is_missing"
   },
   "Action_waiting_for_operand_2_for_plus":{
     "Direction_init":"Action_init",
@@ -206,7 +219,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",   
     "Direction_plus":"Action_waiting_for_operand_2_for_plus",
     "Direction_equal":"Action_warning_10__Second_operand_is_missing",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_waiting_for_operand_2_for_plus"
   },
   "Action_operand_2_attach_zero":{
     "Direction_init":"Action_init",
@@ -222,7 +236,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_2_attach_one":{
     "Direction_init":"Action_init",
@@ -238,7 +253,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_2_attach_two":{
     "Direction_init":"Action_init",
@@ -254,7 +270,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
    },
   "Action_operand_2_attach_three":{
     "Direction_init":"Action_init",
@@ -270,7 +287,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
    },
   "Action_operand_2_attach_four":{
     "Direction_init":"Action_init",
@@ -286,7 +304,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
     "Action_operand_2_attach_five":{
     "Direction_init":"Action_init",
@@ -302,7 +321,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_2_attach_six":{
     "Direction_init":"Action_init",
@@ -318,7 +338,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_2_attach_seven":{
     "Direction_init":"Action_init",
@@ -334,7 +355,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_2_attach_eight":{
     "Direction_init":"Action_init",
@@ -350,7 +372,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
   },
   "Action_operand_2_attach_nine":{
     "Direction_init":"Action_init",
@@ -366,7 +389,8 @@
     "Direction_nine":"Action_operand_2_attach_nine",  
     "Direction_plus":"Action_show_result",
     "Direction_equal":"Action_show_result",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
     },
    "Action_clear":{
     "Direction_init":"Action_init",
@@ -382,7 +406,8 @@
     "Direction_nine":"Action_operand_1_attach_nine",  
     "Direction_plus":"Action_init",
     "Direction_equal":"Action_init",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
    },
    "Action_show_result":{
     "Direction_init":"Action_init",
@@ -398,6 +423,7 @@
     "Direction_nine":"Action_clear",  
     "Direction_plus":"Action_clear",
     "Direction_equal":"Action_clear",
-    "Direction_clear":"Action_clear"
+    "Direction_clear":"Action_clear",
+    "Direction_timeout3":"Action_clear"
    }
   }  
