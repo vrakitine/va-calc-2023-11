@@ -1,6 +1,6 @@
 import vaScript from "../../public/vaop/va-scripts/vaScriptBase10_v1.json";
 import {Text,VStack,HStack,Stack,} from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import { VaScriptAction } from "../../types/types";
 import { Direction } from "../../types/types";
 import { ActionMap } from "../../types/types";
@@ -38,6 +38,37 @@ import FileContentPopup from "./FileContentPopup";
 
 
 function CalcBase10() {
+  ///////////////////////////////////////////////////
+
+  // State to track the last button click timestamp
+  const [lastButtonClickTimestamp, setLastButtonClickTimestamp] = useState(0);
+
+  // Function to handle button click
+  const handleButtonClick = (direction: Direction) => {
+    setLastButtonClickTimestamp(Date.now()); // Update the timestamp on button click
+    getAction(direction);
+  };
+
+  // Function to perform actions after a period of inactivity (3 seconds)
+  const performAfterInactivity = () => {
+    const currentTime = Date.now();
+    if (currentTime - lastButtonClickTimestamp >= 3000) {
+      // Perform your action here after 3 seconds of inactivity
+      console.log("Performing action after 3 seconds of inactivity");
+      getAction('Direction_timeout3');
+    }
+  };
+
+  // Effect to run the performAfterInactivity function periodically
+  useEffect(() => {
+    const interval = setInterval(performAfterInactivity, 1000); // Check every second
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, [lastButtonClickTimestamp]);
+
+
+
+
+  //////////////////////////////////////////////////
 
   const [showPopup, setShowPopup] = useState(false);
   const [fileContent, setFileContent] = useState(""); // Store the file content here
@@ -194,7 +225,8 @@ function CalcBase10() {
                 colorB="blue"
                 label="[ 1 ]"
                 direction="Direction_one"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
+                //onClick={(direction: Direction) => getAction(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
