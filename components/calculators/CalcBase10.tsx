@@ -51,21 +51,27 @@ function CalcBase10() {
 
   // Function to perform actions after a period of inactivity (3 seconds)
   const performAfterInactivity = () => {
-    const currentTime = Date.now();
-    if (currentTime - lastButtonClickTimestamp >= 3000) {
+    //const currentTime = Date.now();
+    //if (currentTime - lastButtonClickTimestamp >= 3000) {
       // Perform your action here after 3 seconds of inactivity
       console.log("Performing action after 3 seconds of inactivity");
       getAction('Direction_timeout3');
-    }
+    //}
   };
 
   // Effect to run the performAfterInactivity function periodically
   useEffect(() => {
-    const interval = setInterval(performAfterInactivity, 1000); // Check every second
-    return () => clearInterval(interval); // Cleanup on component unmount
+    let timeoutId: NodeJS.Timeout | null = null;
+    // Set a timeout to trigger the inactivity check
+    timeoutId = setTimeout(performAfterInactivity, 3000);
+
+    return () => {
+      // Cleanup on component unmount
+      if (timeoutId) {
+        //clearTimeout(timeoutId);
+      }
+    };
   }, [lastButtonClickTimestamp]);
-
-
 
 
   //////////////////////////////////////////////////
