@@ -32,6 +32,7 @@ import Action_operand_2_attach_seven from "../../public/Actions/Action_operand_2
 import Action_operand_2_attach_eight from "../../public/Actions/Action_operand_2_attach_eight";
 import Action_operand_2_attach_nine from "../../public/Actions/Action_operand_2_attach_nine";
 import Action_warning_10__Second_operand_is_missing from "../../public/Actions/Action_warning_10__Second_operand_is_missing";
+import { callbackify } from "util";
 
 interface getActionProps {
     direction: Direction;
@@ -135,3 +136,46 @@ function getAction({
   }
 
   export default getAction;
+
+  // function getAction(direction, operandOne, operandTwo, currentAction) {
+  //   // Your logic here
+  //   const updatedOperandOne = ...;
+  //   const updatedOperandTwo = ...;
+  //   const updatedCurrentAction = ...;
+  //   return {
+  //     updatedOperandOne,
+  //     updatedOperandTwo,
+  //     updatedCurrentAction,
+  //   };
+  // }
+
+  // const { updatedOperandOne, updatedOperandTwo, updatedCurrentAction } = getAction(directionAction, operandOne, operandTwo, currentAction);
+  //   setCurrentAction(updatedCurrentAction);
+  //   setOperandOne(updatedOperandOne);
+  //   setOperandTwo(updatedOperandTwo);
+
+
+  //With callback
+
+  // function getAction(direction, operandOne, operandTwo, currentAction, updateStateCallback) {
+  //   // Your logic here
+  //   const updatedOperandOne = ...;
+  //   const updatedOperandTwo = ...;
+  //   const updatedCurrentAction = ...;
+    
+  //   // Update state variables using the callback functions
+  //   updateStateCallback({
+  //     updatedOperandOne,
+  //     updatedOperandTwo,
+  //     updatedCurrentAction,
+  //   });
+  // }
+
+  
+  // getAction(directionAction, operandOne, operandTwo, currentAction, (updatedState) => {
+  //   setOperandOne(updatedState.updatedOperandOne);
+  //   setOperandTwo(updatedState.updatedOperandTwo);
+  //   setCurrentAction(updatedState.updatedCurrentAction);
+  // });
+  
+
