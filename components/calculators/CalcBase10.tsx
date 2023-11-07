@@ -51,7 +51,7 @@ function CalcBase10() {
 
   // Function to perform actions after a period of inactivity (3 seconds)
   const performAfterInactivity = () => {
-    console.log("Performing action");
+    console.log("===> performAfterInactivity");
     getAction('Direction_timeout3');
   };
 
@@ -67,7 +67,8 @@ function CalcBase10() {
         clearTimeout(timeoutId);
       }
     };
-  }, [lastButtonClickTimestamp]);
+  //}, [lastButtonClickTimestamp]);
+}, []);
 
 
   //////////////////////////////////////////////////
@@ -143,7 +144,7 @@ function CalcBase10() {
 
   function getAction(direction: Direction) {
     console.log("Click!!!");
-    console.log(direction);
+    console.log(currentAction);
 
     setWarningMsg("");
 
@@ -155,11 +156,7 @@ function CalcBase10() {
     setActionsText(temp);
 
     if (vaScript.hasOwnProperty(nextAction)) {
-      console.log("currentAction in case:[" + nextAction + "]");
-
-      actionFunctions[nextAction](operandOne, operandTwo, setOperandOne, setOperandTwo, setResult, setWarningMsg);
-
-      
+      actionFunctions[nextAction](operandOne, operandTwo, setOperandOne, setOperandTwo, setResult, setWarningMsg); 
     } else {
       switch (nextAction) {
         default:
@@ -169,10 +166,17 @@ function CalcBase10() {
       console.log("Stop --> [" + nextAction + "]");
     }
 
+
+
     setDirectionAction(direction);
     setPreviousAction(currentAction);
     setCurrentAction(nextAction);
 
+    console.log("[---------------------]");
+    console.log("[" + currentAction + "]");
+    console.log("[" + direction + "]");
+    console.log("[" + nextAction + "]");
+    console.log("[---------------------]");
 
     // Specify the path to the text file in the public folder currentAction
     const filePath = './Actions/' + nextAction + '.tsx';
