@@ -51,12 +51,8 @@ function CalcBase10() {
 
   // Function to perform actions after a period of inactivity (3 seconds)
   const performAfterInactivity = () => {
-    //const currentTime = Date.now();
-    //if (currentTime - lastButtonClickTimestamp >= 3000) {
-      // Perform your action here after 3 seconds of inactivity
-      console.log("Performing action after 3 seconds of inactivity");
-      getAction('Direction_timeout3');
-    //}
+    console.log("Performing action");
+    getAction('Direction_timeout3');
   };
 
   // Effect to run the performAfterInactivity function periodically
@@ -68,7 +64,7 @@ function CalcBase10() {
     return () => {
       // Cleanup on component unmount
       if (timeoutId) {
-        //clearTimeout(timeoutId);
+        clearTimeout(timeoutId);
       }
     };
   }, [lastButtonClickTimestamp]);
