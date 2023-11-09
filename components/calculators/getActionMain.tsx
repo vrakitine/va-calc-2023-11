@@ -136,75 +136,23 @@ function getActionMain(
 
 
     // Specify the path to the text file in the public folder currentAction
-    const filePath = './Actions/' + nextAction + '.tsx';
+    // const filePath = './Actions/' + nextAction + '.tsx';
 
-    fetch(filePath)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch file content');
-        }
-        return response.text();
-      })
-      .then((text) => {
-        setFileContent(text);
-      })
-      .catch((error) => {
-        console.error('Error fetching file content:', error);
-      });
+    // fetch(filePath)
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error('Failed to fetch file content');
+    //     }
+    //     return response.text();
+    //   })
+    //   .then((text) => {
+    //     setFileContent(text);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching file content:', error);
+    //   });
   }
 
   export default getActionMain;
 
-  // function getAction(direction, operandOne, operandTwo, currentAction) {
-  //   // Your logic here
-  //   const updatedOperandOne = ...;
-  //   const updatedOperandTwo = ...;
-  //   const updatedCurrentAction = ...;
-  //   return {
-  //     updatedOperandOne,
-  //     updatedOperandTwo,
-  //     updatedCurrentAction,
-  //   };
-  // }
-
-  // const { updatedOperandOne, updatedOperandTwo, updatedCurrentAction } = getAction(directionAction, operandOne, operandTwo, currentAction);
-  //   setCurrentAction(updatedCurrentAction);
-  //   setOperandOne(updatedOperandOne);
-  //   setOperandTwo(updatedOperandTwo);
-
-
-  //With callback
-
-  // function getAction(direction, operandOne, operandTwo, currentAction, updateStateCallback) {
-  //   // Your logic here
-  //   const updatedOperandOne = ...;
-  //   const updatedOperandTwo = ...;
-  //   const updatedCurrentAction = ...;
-    
-  //   // Update state variables using the callback functions
-  //   updateStateCallback({
-  //     updatedOperandOne,
-  //     updatedOperandTwo,
-  //     updatedCurrentAction,
-  //   });
-  // }
-
-  
-  // getAction(directionAction, operandOne, operandTwo, currentAction, (updatedState) => {
-  //   setOperandOne(updatedState.updatedOperandOne);
-  //   setOperandTwo(updatedState.updatedOperandTwo);
-  //   setCurrentAction(updatedState.updatedCurrentAction);
-  // });
-  // function Action_operand_1_attach_four(
-  //   operandOne: string, 
-  //   operandTwo: string, 
-  //   setOperandOne: React.Dispatch<React.SetStateAction<string>>,
-  //   setOperandTwo: React.Dispatch<React.SetStateAction<string>>,
-  //   setResult: React.Dispatch<React.SetStateAction<string>>,
-  //   setWarningMsg: React.Dispatch<React.SetStateAction<string>>
-  //   ): void {
-  //       setOperandOne(operandOne + "4");
-  //   }
-    
-  //   export default Action_operand_1_attach_four;
-
+ 

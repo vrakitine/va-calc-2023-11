@@ -1,4 +1,3 @@
-import vaScript from "../../public/vaop/va-scripts/vaScriptBase10_v1.json";
 import getActionMain from "./getActionMain";
 import {Text,VStack,HStack,Stack,} from "@chakra-ui/react";
 import { useState, useEffect} from "react";
@@ -24,8 +23,6 @@ function CalcBase10() {
 	const [warningMsg, setWarningMsg] = useState<string>("");
 	const [actionsText, setActionsText] = useState<string>("actionsText_init");
 	//const [actionLines, setActionsLines] = useState<string[]>([]);
-
-
 
   function getAction(direction: Direction): void {
     getActionMain(direction, 
@@ -69,8 +66,6 @@ function CalcBase10() {
     };
   }, [lastButtonClickTimestamp]);
 
-
-
   const handleMouseOver = (inputData: Direction): void => {
       setNextDirectionAction(inputData);
       };
@@ -79,12 +74,14 @@ function CalcBase10() {
 		setNextDirectionAction("nextDirection_init");
 	  };
 
-
   return (
     // @ts-ignore
     <VStack p={2}>
       <Text fontSize="35px" color="gray">
         va-calculator (base 10) 
+      </Text>
+      <Text as="i" fontSize="12px" color="blue">
+        <strong>{currentAction}</strong>&nbsp;&nbsp;is completed
       </Text>
       {/* <div className="">
           <Text as="i" fontSize="12px" color="blue">
