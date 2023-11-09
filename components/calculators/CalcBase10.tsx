@@ -21,7 +21,16 @@ function CalcBase10() {
 	const [operandTwo, setOperandTwo] = useState<string>("");
 	const [result, setResult] = useState<string>("");
 	const [warningMsg, setWarningMsg] = useState<string>("");
-	const [actionsText, setActionsText] = useState<string>("actionsText_init");
+
+  const [showPopup, setShowPopup] = useState(false);
+  const [fileContent, setFileContent] = useState(""); 
+   // Function to open the popup
+   const openPopup = () => {setShowPopup(true);};
+  // Function to close the popup
+  const closePopup = () => {setShowPopup(false);};
+
+
+	//const [actionsText, setActionsText] = useState<string>("actionsText_init");
 	//const [actionLines, setActionsLines] = useState<string[]>([]);
 
   function getAction(direction: Direction): void {
@@ -32,7 +41,8 @@ function CalcBase10() {
         operandOne, setOperandOne,
         operandTwo, setOperandTwo,
         result, setResult,
-        warningMsg, setWarningMsg
+        warningMsg, setWarningMsg,
+        fileContent, setFileContent as React.Dispatch<React.SetStateAction<string>>
     );
   }
 
@@ -80,10 +90,7 @@ function CalcBase10() {
       <Text fontSize="35px" color="gray">
         va-calculator (base 10) 
       </Text>
-      <Text as="i" fontSize="12px" color="blue">
-        <strong>{currentAction}</strong>&nbsp;&nbsp;is completed
-      </Text>
-      {/* <div className="">
+      <div className="">
           <Text as="i" fontSize="12px" color="blue">
                 <div>
                   <button onClick={openPopup}> 
@@ -94,7 +101,7 @@ function CalcBase10() {
                     )}
                 </div>
           </Text>
-        </div> */}
+        </div>
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
         <div>
           <Text fontSize="25px" color="gray">

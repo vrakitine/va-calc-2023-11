@@ -25,7 +25,9 @@ function getActionMain (
   result: string,
   setResult: React.Dispatch<React.SetStateAction<string>>,
   warningMsg: string,
-  setWarningMsg: React.Dispatch<React.SetStateAction<string>>
+  setWarningMsg: React.Dispatch<React.SetStateAction<string>>,
+  fileContent: string, 
+  setFileContent: React.Dispatch<React.SetStateAction<string>>
   ): void {
     console.log("Click!!!");
     console.log("[-getActionMain-]");
@@ -63,21 +65,21 @@ function getActionMain (
 
 
     // Specify the path to the text file in the public folder currentAction
-    // const filePath = './Actions/' + nextAction + '.tsx';
+    const filePath = './Actions/' + nextAction + '.tsx';
 
-    // fetch(filePath)
-    //   .then((response) => {
-    //     if (!response.ok) {
-    //       throw new Error('Failed to fetch file content');
-    //     }
-    //     return response.text();
-    //   })
-    //   .then((text) => {
-    //     setFileContent(text);
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error fetching file content:', error);
-    //   });
+    fetch(filePath)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch file content');
+        }
+        return response.text();
+      })
+      .then((text) => {
+        setFileContent(text);
+      })
+      .catch((error) => {
+        console.error('Error fetching file content:', error);
+      });
   }
 
   export default getActionMain;
