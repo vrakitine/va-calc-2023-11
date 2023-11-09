@@ -1,5 +1,5 @@
 import vaScript from "../../public/vaop/va-scripts/vaScriptBase10_v1.json";
-import getAction from "./getAction";
+import getActionMain from "./getActionMain";
 import {Text,VStack,HStack,Stack,} from "@chakra-ui/react";
 import { useState, useEffect} from "react";
 import { VaScriptAction } from "../../types/types";
@@ -23,15 +23,53 @@ function CalcBase10() {
 	const [result, setResult] = useState<string>("");
 	const [warningMsg, setWarningMsg] = useState<string>("");
 	const [actionsText, setActionsText] = useState<string>("actionsText_init");
-	const [actionLines, setActionsLines] = useState<string[]>([]);
-  const { getActionsBlockFromScriptByAction } = require('./calcUtils');
-
-	const handleButtonClick = (inputData: Direction): void => {
-		
-  const next = getAction(direction, ...);
+	//const [actionLines, setActionsLines] = useState<string[]>([]);
 
 
-	  };
+
+  function getAction(direction: Direction): void {
+    getActionMain(direction, 
+        currentAction, setCurrentAction,
+        previousAction, setPreviousAction,
+        directionAction, setDirectionAction,
+        operandOne, setOperandOne,
+        operandTwo, setOperandTwo,
+        result, setResult,
+        warningMsg, setWarningMsg
+    );
+  }
+
+
+  // State to track the last button click timestamp
+  const [lastButtonClickTimestamp, setLastButtonClickTimestamp] = useState(0);
+
+  // Function to handle button click
+  const handleButtonClick = (direction: Direction) => {
+    setLastButtonClickTimestamp(Date.now()); // Update the timestamp on button click
+    getAction(direction);
+  };
+
+  // Function to perform actions after a period of inactivity (3 seconds)
+  const performAfterInactivity = () => {
+    console.log("===> performAfterInactivity");
+    getAction('Direction_timeout3');
+  };
+
+  // Effect to run the performAfterInactivity function periodically
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout | null = null;
+    // Set a timeout to trigger the inactivity check
+    timeoutId = setTimeout(performAfterInactivity, 3000);
+
+    return () => {
+      // Cleanup on component unmount
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [lastButtonClickTimestamp]);
+
+
 
   const handleMouseOver = (inputData: Direction): void => {
       setNextDirectionAction(inputData);
@@ -48,7 +86,7 @@ function CalcBase10() {
       <Text fontSize="35px" color="gray">
         va-calculator (base 10) 
       </Text>
-      <div className="">
+      {/* <div className="">
           <Text as="i" fontSize="12px" color="blue">
                 <div>
                   <button onClick={openPopup}> 
@@ -59,7 +97,7 @@ function CalcBase10() {
                     )}
                 </div>
           </Text>
-        </div>
+        </div> */}
       <Stack direction={{ base: "column", md: "row" }} spacing={4}>
         <div>
           <Text fontSize="25px" color="gray">
@@ -82,7 +120,6 @@ function CalcBase10() {
                 label="[ 1 ]"
                 direction="Direction_one"
                 onClick={(direction: Direction) => handleButtonClick(direction)}
-                //onClick={(direction: Direction) => getAction(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -207,11 +244,11 @@ function CalcBase10() {
             <small>currentAction:</small>[{currentAction}]
           </p> */}
         </div>
-        <div className="">
+        {/* <div className="">
           <Text as="i" fontSize="12px" color="blue">
             <ActionList actionData={actionLines} nextDirectionAction={nextDirectionAction} />
           </Text>
-        </div>
+        </div> */}
       </Stack>
     </VStack>
   );

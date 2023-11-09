@@ -34,32 +34,50 @@ import Action_operand_2_attach_nine from "../../public/Actions/Action_operand_2_
 import Action_warning_10__Second_operand_is_missing from "../../public/Actions/Action_warning_10__Second_operand_is_missing";
 import { callbackify } from "util";
 
-interface getActionProps {
-    direction: Direction;
-}
+// interface getActionProps {
+//     direction: Direction;
+//     currentAction: string;
+//     setCurrentAction: React.Dispatch<React.SetStateAction<string>>;
+//     previousAction: string;
+//     setPreviousAction: React.Dispatch<React.SetStateAction<string>>;
+//     directionAction: string;
+//     setDirectionAction: React.Dispatch<React.SetStateAction<string>>;
+//     operandOne: string;
+//     setOperandOne: React.Dispatch<React.SetStateAction<string>>;
+//     operandTwo: string;
+//     setOperandTwo: React.Dispatch<React.SetStateAction<string>>;
+//     result: string;
+//     setResult: React.Dispatch<React.SetStateAction<string>>;
+//     warningMsg: string;
+//     setWarningMsg: React.Dispatch<React.SetStateAction<string>>;
+// }
 
 
 
-function getAction({
-        direction: Direction,
-    }: getActionProps
-    ): void {
+function getActionMain(
+  direction: Direction,
+  currentAction: string,
+  setCurrentAction: React.Dispatch<React.SetStateAction<string>>,
+  previousAction: string,
+  setPreviousAction: React.Dispatch<React.SetStateAction<string>>,
+  directionAction: string,
+  setDirectionAction: React.Dispatch<React.SetStateAction<string>>,
+  operandOne: string,
+  setOperandOne: React.Dispatch<React.SetStateAction<string>>,
+  operandTwo: string,
+  setOperandTwo: React.Dispatch<React.SetStateAction<string>>,
+  result: string,
+  setResult: React.Dispatch<React.SetStateAction<string>>,
+  warningMsg: string,
+  setWarningMsg: React.Dispatch<React.SetStateAction<string>>
+  ): void {
     console.log("Click!!!");
-    console.log(direction);
+    console.log("[-getActionMain-]");
+    console.log("[" + direction + "]");
+    console.log("[" + currentAction + "]");
+    
 
-    const [currentAction, setCurrentAction] = useState<VaScriptAction>("Action_init");
-	const [previousAction, setPreviousAction] = useState<VaScriptAction>("Action_init");
-	const [directionAction, setDirectionAction] = useState<Direction>("Direction_init");
-	const [nextDirectionAction, setNextDirectionAction] = useState<Direction>("nextDirection_init");
-	const [operandOne, setOperandOne] = useState<string>("");
-	const [operandTwo, setOperandTwo] = useState<string>("");
-	const [result, setResult] = useState<string>("");
-	const [warningMsg, setWarningMsg] = useState<string>("");
-	const [actionsText, setActionsText] = useState<string>("actionsText_init");
-	//const [actionLines, setActionsLines] = useState<string[]>([]);
-
-    const { getActionsBlockFromScriptByAction } = require('./calcUtils');
-
+ 
   const actionFunctions: Record<VaScriptAction, Function> = {
     Action_init,
     Action_operand_1_attach_zero,
@@ -92,10 +110,10 @@ function getAction({
 
     const nextAction = vaScript[currentAction][direction] as VaScriptAction;
 
-    var temp = getActionsBlockFromScriptByAction(nextAction);
-    const actionLines = temp.split("\n");
-    setActionsLines(actionLines);
-    setActionsText(temp);
+    // var temp = getActionsBlockFromScriptByAction(nextAction);
+    // const actionLines = temp.split("\n");
+    // setActionsLines(actionLines);
+    // setActionsText(temp);
 
     if (vaScript.hasOwnProperty(nextAction)) {
       console.log("currentAction in case:[" + nextAction + "]");
@@ -135,7 +153,7 @@ function getAction({
       });
   }
 
-  export default getAction;
+  export default getActionMain;
 
   // function getAction(direction, operandOne, operandTwo, currentAction) {
   //   // Your logic here
@@ -177,5 +195,16 @@ function getAction({
   //   setOperandTwo(updatedState.updatedOperandTwo);
   //   setCurrentAction(updatedState.updatedCurrentAction);
   // });
-  
+  // function Action_operand_1_attach_four(
+  //   operandOne: string, 
+  //   operandTwo: string, 
+  //   setOperandOne: React.Dispatch<React.SetStateAction<string>>,
+  //   setOperandTwo: React.Dispatch<React.SetStateAction<string>>,
+  //   setResult: React.Dispatch<React.SetStateAction<string>>,
+  //   setWarningMsg: React.Dispatch<React.SetStateAction<string>>
+  //   ): void {
+  //       setOperandOne(operandOne + "4");
+  //   }
+    
+  //   export default Action_operand_1_attach_four;
 
