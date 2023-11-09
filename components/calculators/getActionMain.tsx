@@ -10,7 +10,7 @@ import ActionList from "./ActionList";
 import ActionButton from "./ActionButton";
 
 
-function getActionMain(
+function getActionMain (
   direction: Direction,
   currentAction: string,
   setCurrentAction: React.Dispatch<React.SetStateAction<string>>,
@@ -81,5 +81,3 @@ function getActionMain(
   }
 
   export default getActionMain;
-
- 

@@ -26,9 +26,9 @@ function CalcBase10() {
 
   function getAction(direction: Direction): void {
     getActionMain(direction, 
-        currentAction, setCurrentAction,
-        previousAction, setPreviousAction,
-        directionAction, setDirectionAction,
+        currentAction, setCurrentAction as React.Dispatch<React.SetStateAction<string>>,
+        previousAction, setPreviousAction as React.Dispatch<React.SetStateAction<string>>,
+        directionAction, setDirectionAction as React.Dispatch<React.SetStateAction<string>>,
         operandOne, setOperandOne,
         operandTwo, setOperandTwo,
         result, setResult,
