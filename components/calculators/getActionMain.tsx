@@ -33,7 +33,8 @@ function getActionMain(
     console.log("[" + currentAction + "]");
     
     setWarningMsg("");
-
+    
+    // @ts-ignore
     const nextAction = vaScript[currentAction][direction] as VaScriptAction;
 
     // var temp = getActionsBlockFromScriptByAction(nextAction);
