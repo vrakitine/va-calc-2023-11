@@ -9,11 +9,11 @@ import { ActionMapping } from "../../types/types";
 import ActionList from "./ActionList";
 import ActionButton from "./ActionButton";
 
+import { useAppContext } from "../../app/context/AppContext"; // Import the hook
+
 
 function getActionMain (
   direction: Direction,
-  currentAction: string,
-  setCurrentAction: React.Dispatch<React.SetStateAction<string>>,
   previousAction: string,
   setPreviousAction: React.Dispatch<React.SetStateAction<string>>,
   directionAction: string,
@@ -29,6 +29,9 @@ function getActionMain (
   fileContent: string, 
   setFileContent: React.Dispatch<React.SetStateAction<string>>
   ): void {
+
+    const { currentAction, setCurrentAction } = useAppContext(); // Use the hook to access the context values
+
     console.log("Click!!!");
     console.log("[-getActionMain-]");
     console.log("[" + direction + "]");

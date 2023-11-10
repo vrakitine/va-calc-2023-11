@@ -10,10 +10,11 @@ import ActionButton from "./ActionButton";
 
 import FileContentPopup from "./FileContentPopup";
 
+import { useAppContext } from "../../app/context/AppContext"; // Import the hook
+
 
 function CalcBase10() {
 
-  const [currentAction, setCurrentAction] = useState<VaScriptAction>("Action_init");
 	const [previousAction, setPreviousAction] = useState<VaScriptAction>("Action_init");
 	const [directionAction, setDirectionAction] = useState<Direction>("Direction_init");
 	const [nextDirectionAction, setNextDirectionAction] = useState<Direction>("nextDirection_init");
@@ -21,6 +22,8 @@ function CalcBase10() {
 	const [operandTwo, setOperandTwo] = useState<string>("");
 	const [result, setResult] = useState<string>("");
 	const [warningMsg, setWarningMsg] = useState<string>("");
+
+  const { currentAction, setCurrentAction } = useAppContext(); // Use the hook to access the context values
 
   const [showPopup, setShowPopup] = useState(false);
   const [fileContent, setFileContent] = useState(""); 
@@ -35,7 +38,6 @@ function CalcBase10() {
 
   function getAction(direction: Direction): void {
     getActionMain(direction, 
-        currentAction, setCurrentAction as React.Dispatch<React.SetStateAction<string>>,
         previousAction, setPreviousAction as React.Dispatch<React.SetStateAction<string>>,
         directionAction, setDirectionAction as React.Dispatch<React.SetStateAction<string>>,
         operandOne, setOperandOne,
