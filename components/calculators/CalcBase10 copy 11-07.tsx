@@ -1,4 +1,4 @@
-import getActionMain from "./getActionMain";
+import vaScript from "../../public/vaop/va-scripts/vaScriptBase10_v1.json";
 import {Text,VStack,HStack,Stack,} from "@chakra-ui/react";
 import { useState, useEffect} from "react";
 import { VaScriptAction } from "../../types/types";
@@ -7,45 +7,38 @@ import { ActionMap } from "../../types/types";
 import { ActionMapping } from "../../types/types";
 import ActionList from "./ActionList";
 import ActionButton from "./ActionButton";
+import Action_show_result from "../../public/Actions/Action_show_result";
+import Action_clear from "../../public/Actions/Action_clear";
+import Action_init from "../../public/Actions/Action_init";
+import Action_operand_1_attach_zero from "../../public/Actions/Action_operand_1_attach_zero";
+import Action_operand_1_attach_one from "../../public/Actions/Action_operand_1_attach_one";
+import Action_operand_1_attach_two from "../../public/Actions/Action_operand_1_attach_two";
+import Action_operand_1_attach_three from "../../public/Actions/Action_operand_1_attach_three";
+import Action_operand_1_attach_four from "../../public/Actions/Action_operand_1_attach_four";
+import Action_operand_1_attach_five from "../../public/Actions/Action_operand_1_attach_five";
+import Action_operand_1_attach_six from "../../public/Actions/Action_operand_1_attach_six";
+import Action_operand_1_attach_seven from "../../public/Actions/Action_operand_1_attach_seven";
+import Action_operand_1_attach_eight from "../../public/Actions/Action_operand_1_attach_eight";
+import Action_operand_1_attach_nine from "../../public/Actions/Action_operand_1_attach_nine";
+import Action_waiting_for_operand_2_for_plus from "../../public/Actions/Action_waiting_for_operand_2_for_plus";
+import Action_operand_2_attach_zero from "../../public/Actions/Action_operand_2_attach_zero";
+import Action_operand_2_attach_one from "../../public/Actions/Action_operand_2_attach_one";
+import Action_operand_2_attach_two from "../../public/Actions/Action_operand_2_attach_two";
+import Action_operand_2_attach_three from "../../public/Actions/Action_operand_2_attach_three";
+import Action_operand_2_attach_four from "../../public/Actions/Action_operand_2_attach_four";
+import Action_operand_2_attach_five from "../../public/Actions/Action_operand_2_attach_five";
+import Action_operand_2_attach_six from "../../public/Actions/Action_operand_2_attach_six";
+import Action_operand_2_attach_seven from "../../public/Actions/Action_operand_2_attach_seven";
+import Action_operand_2_attach_eight from "../../public/Actions/Action_operand_2_attach_eight";
+import Action_operand_2_attach_nine from "../../public/Actions/Action_operand_2_attach_nine";
+import Action_warning_10__Second_operand_is_missing from "../../public/Actions/Action_warning_10__Second_operand_is_missing";
+
 
 import FileContentPopup from "./FileContentPopup";
 
 
 function CalcBase10() {
-
-  const [currentAction, setCurrentAction] = useState<VaScriptAction>("Action_init");
-	const [previousAction, setPreviousAction] = useState<VaScriptAction>("Action_init");
-	const [directionAction, setDirectionAction] = useState<Direction>("Direction_init");
-	const [nextDirectionAction, setNextDirectionAction] = useState<Direction>("nextDirection_init");
-	const [operandOne, setOperandOne] = useState<string>("");
-	const [operandTwo, setOperandTwo] = useState<string>("");
-	const [result, setResult] = useState<string>("");
-	const [warningMsg, setWarningMsg] = useState<string>("");
-
-  const [showPopup, setShowPopup] = useState(false);
-  const [fileContent, setFileContent] = useState(""); 
-   // Function to open the popup
-   const openPopup = () => {setShowPopup(true);};
-  // Function to close the popup
-  const closePopup = () => {setShowPopup(false);};
-
-
-	//const [actionsText, setActionsText] = useState<string>("actionsText_init");
-	//const [actionLines, setActionsLines] = useState<string[]>([]);
-
-  function getAction(direction: Direction): void {
-    getActionMain(direction, 
-        currentAction, setCurrentAction as React.Dispatch<React.SetStateAction<string>>,
-        previousAction, setPreviousAction as React.Dispatch<React.SetStateAction<string>>,
-        directionAction, setDirectionAction as React.Dispatch<React.SetStateAction<string>>,
-        operandOne, setOperandOne,
-        operandTwo, setOperandTwo,
-        result, setResult,
-        warningMsg, setWarningMsg,
-        fileContent, setFileContent as React.Dispatch<React.SetStateAction<string>>
-    );
-  }
-
+  ///////////////////////////////////////////////////
 
   // State to track the last button click timestamp
   const [lastButtonClickTimestamp, setLastButtonClickTimestamp] = useState(0);
@@ -74,16 +67,136 @@ function CalcBase10() {
         clearTimeout(timeoutId);
       }
     };
-  }, [lastButtonClickTimestamp]);
+  //}, [lastButtonClickTimestamp]);
+}, []);
 
-  const handleMouseOver = (inputData: Direction): void => {
-      setNextDirectionAction(inputData);
-      };
-  
+
+  //////////////////////////////////////////////////
+
+  const [showPopup, setShowPopup] = useState(false);
+  const [fileContent, setFileContent] = useState(""); // Store the file content here
+
+
+  // Function to open the popup
+  const openPopup = () => {
+    
+    setShowPopup(true);
+  };
+
+  // Function to close the popup
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
+  const [currentAction, setCurrentAction] = useState<VaScriptAction>("Action_init");
+	const [previousAction, setPreviousAction] = useState<VaScriptAction>("Action_init");
+	const [directionAction, setDirectionAction] = useState<Direction>("Direction_init");
+	const [nextDirectionAction, setNextDirectionAction] = useState<Direction>("nextDirection_init");
+	const [operandOne, setOperandOne] = useState<string>("");
+	const [operandTwo, setOperandTwo] = useState<string>("");
+	const [result, setResult] = useState<string>("");
+	const [warningMsg, setWarningMsg] = useState<string>("");
+	const [actionsText, setActionsText] = useState<string>("actionsText_init");
+	const [actionLines, setActionsLines] = useState<string[]>([]);
+
+  const actionFunctions: Record<VaScriptAction, Function> = {
+    Action_init,
+    Action_operand_1_attach_zero,
+    Action_operand_1_attach_one,
+    Action_operand_1_attach_two,
+    Action_operand_1_attach_three,
+    Action_operand_1_attach_four,
+    Action_operand_1_attach_five,
+    Action_operand_1_attach_six,
+    Action_operand_1_attach_seven,
+    Action_operand_1_attach_eight,
+    Action_operand_1_attach_nine,
+    Action_waiting_for_operand_2_for_plus,
+    Action_operand_2_attach_zero,
+    Action_operand_2_attach_one,
+    Action_operand_2_attach_two,
+    Action_operand_2_attach_three,
+    Action_operand_2_attach_four,
+    Action_operand_2_attach_five,
+    Action_operand_2_attach_six,
+    Action_operand_2_attach_seven,
+    Action_operand_2_attach_eight,
+    Action_operand_2_attach_nine,
+    Action_warning_10__Second_operand_is_missing,
+    Action_clear,
+    Action_show_result
+  };
+
+  const { getActionsBlockFromScriptByAction } = require('./calcUtils');
+
+	const handleMouseOver = (inputData: Direction): void => {
+		setNextDirectionAction(inputData);
+	  };
+
 	const handleMouseLeave = (): void => {
 		setNextDirectionAction("nextDirection_init");
 	  };
+    
 
+    //
+    //  function getAction  ////////////////////////
+    //
+
+  function getAction(direction: Direction) {
+    console.log("Click!!!");
+    console.log(currentAction);
+
+    setWarningMsg("");
+
+    const nextAction = vaScript[currentAction][direction] as VaScriptAction;
+
+    var temp = getActionsBlockFromScriptByAction(nextAction);
+    const actionLines = temp.split("\n");
+    setActionsLines(actionLines);
+    setActionsText(temp);
+
+    if (vaScript.hasOwnProperty(nextAction)) {
+      actionFunctions[nextAction](operandOne, operandTwo, setOperandOne, setOperandTwo, setResult, setWarningMsg); 
+    } else {
+      switch (nextAction) {
+        default:
+          console.log("Error: [" + nextAction + "]");
+      }
+
+      console.log("Stop --> [" + nextAction + "]");
+    }
+
+
+
+    setDirectionAction(direction);
+    setPreviousAction(currentAction);
+    setCurrentAction(nextAction);
+
+    console.log("[---------------------]");
+    console.log("[" + currentAction + "]");
+    console.log("[" + direction + "]");
+    console.log("[" + nextAction + "]");
+    console.log("[---------------------]");
+
+    // Specify the path to the text file in the public folder currentAction
+    const filePath = './Actions/' + nextAction + '.tsx';
+
+    fetch(filePath)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch file content');
+        }
+        return response.text();
+      })
+      .then((text) => {
+        setFileContent(text);
+      })
+      .catch((error) => {
+        console.error('Error fetching file content:', error);
+      });
+
+
+  }
   return (
     // @ts-ignore
     <VStack p={2}>
@@ -124,6 +237,7 @@ function CalcBase10() {
                 label="[ 1 ]"
                 direction="Direction_one"
                 onClick={(direction: Direction) => handleButtonClick(direction)}
+                //onClick={(direction: Direction) => getAction(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -248,11 +362,11 @@ function CalcBase10() {
             <small>currentAction:</small>[{currentAction}]
           </p> */}
         </div>
-        {/* <div className="">
+        <div className="">
           <Text as="i" fontSize="12px" color="blue">
             <ActionList actionData={actionLines} nextDirectionAction={nextDirectionAction} />
           </Text>
-        </div> */}
+        </div>
       </Stack>
     </VStack>
   );
