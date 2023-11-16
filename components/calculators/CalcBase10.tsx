@@ -22,6 +22,18 @@ function CalcBase10() {
 	const [result, setResult] = useState<string>("");
 	const [warningMsg, setWarningMsg] = useState<string>("");
 
+  const direction_digits = [
+    "Direction_zero",
+    "Direction_one",
+    "Direction_two",
+    "Direction_three",
+    "Direction_four",
+    "Direction_five",
+    "Direction_six",
+    "Direction_seven",
+    "Direction_eight",
+    "Direction_nine"];
+
   const [showPopup, setShowPopup] = useState(false);
   const [fileContent, setFileContent] = useState(""); 
    // Function to open the popup
@@ -66,8 +78,12 @@ function CalcBase10() {
   useEffect(() => {
     let timeoutId: NodeJS.Timeout | null = null;
     // Set a timeout to trigger the inactivity check
-    timeoutId = setTimeout(performAfterInactivity, 3000);
-
+    if(direction_digits.indexOf(directionAction) !== -1){
+      timeoutId = setTimeout(performAfterInactivity, 3000);
+    }else{
+      timeoutId = setTimeout(performAfterInactivity, 100000000);
+    }
+    
     return () => {
       // Cleanup on component unmount
       if (timeoutId) {
@@ -131,7 +147,7 @@ function CalcBase10() {
                 colorB="blue"
                 label="[ 2 ]"
                 direction="Direction_two"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -139,7 +155,7 @@ function CalcBase10() {
                 colorB="blue"
                 label="[ 3 ]"
                 direction="Direction_three"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -150,7 +166,7 @@ function CalcBase10() {
                 colorB="blue"
                 label="[ 4 ]"
                 direction="Direction_four"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -158,7 +174,7 @@ function CalcBase10() {
                 colorB="blue"
                 label="[ 5 ]"
                 direction="Direction_five"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -166,7 +182,7 @@ function CalcBase10() {
                 colorB="blue"
                 label="[ 6 ]"
                 direction="Direction_six"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -177,7 +193,7 @@ function CalcBase10() {
                 colorB="blue"
                 label="[ 7 ]"
                 direction="Direction_seven"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -185,7 +201,7 @@ function CalcBase10() {
                 colorB="blue"
                 label="[ 8 ]"
                 direction="Direction_eight"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -193,7 +209,7 @@ function CalcBase10() {
                 colorB="blue"
                 label="[ 9 ]"
                 direction="Direction_nine"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -205,7 +221,7 @@ function CalcBase10() {
                 colorB="teal"
                 label="[ 0 ]"
                 direction="Direction_zero"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -213,7 +229,7 @@ function CalcBase10() {
                 colorB="gray"
                 label="[ + ]"
                 direction="Direction_plus"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -221,7 +237,7 @@ function CalcBase10() {
                 colorB="gray"
                 label="[ = ]"
                 direction="Direction_equal"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
@@ -232,7 +248,7 @@ function CalcBase10() {
                 colorB="gray"
                 label="[ CA ]"
                 direction="Direction_clear"
-                onClick={(direction: Direction) => getAction(direction)}
+                onClick={(direction: Direction) => handleButtonClick(direction)}
   				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
   				      onMouseLeave={() => handleMouseLeave()}
               />
