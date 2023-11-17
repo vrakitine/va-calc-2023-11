@@ -92,11 +92,11 @@ function CalcBase10() {
 		setNextDirectionAction("nextDirection_init");
 	  };
 
-  const generateActionButtonWrapper = (id: string) => (
+  const generateActionButtonWrapper = (direction: Direction) => (
     <ActionButtonWrapper
-      colorB={buttonProps[id].color}
-      label={buttonProps[id].label}
-      direction={buttonProps[id].direction}
+      colorB={buttonProps[direction as keyof typeof buttonProps].color}
+      label={buttonProps[direction as keyof typeof buttonProps].label}
+      direction={direction}
       onClickHandler={handleButtonClick}
       onMouseOverHandler={handleMouseOver}
       onMouseLeaveHandler={handleMouseLeave}
@@ -138,31 +138,31 @@ function CalcBase10() {
           </Text>
           <VStack spacing={3} align="start">
             <HStack spacing={4}>
-              {generateActionButtonWrapper("1")}
-              {generateActionButtonWrapper("2")}
-              {generateActionButtonWrapper("3")}
+              {generateActionButtonWrapper("Direction_one")}
+              {generateActionButtonWrapper("Direction_two")}
+              {generateActionButtonWrapper("Direction_three")}
             </HStack>
 
             <HStack spacing={4}>
-              {generateActionButtonWrapper("4")}
-              {generateActionButtonWrapper("5")}
-              {generateActionButtonWrapper("6")}
+              {generateActionButtonWrapper("Direction_four")}
+              {generateActionButtonWrapper("Direction_five")}
+              {generateActionButtonWrapper("Direction_six")}
             </HStack>
 
             <HStack spacing={4}>
-              {generateActionButtonWrapper("7")}
-              {generateActionButtonWrapper("8")}
-              {generateActionButtonWrapper("9")}
+              {generateActionButtonWrapper("Direction_seven")}
+              {generateActionButtonWrapper("Direction_eight")}
+              {generateActionButtonWrapper("Direction_nine")}
             </HStack>
 
             <HStack spacing={4}>
-              {generateActionButtonWrapper("0")}
-              {generateActionButtonWrapper("+")}
-              {generateActionButtonWrapper("=")}
+              {generateActionButtonWrapper("Direction_zero")}
+              {generateActionButtonWrapper("Direction_plus")}
+              {generateActionButtonWrapper("Direction_equal")}
             </HStack>
 
             <HStack spacing={4}>
-              {generateActionButtonWrapper("CA")}
+              {generateActionButtonWrapper("Direction_clear")}
             </HStack>
           </VStack>
 
