@@ -24,7 +24,7 @@ function CalcBase10() {
 	const [result, setResult] = useState<string>("");
 	const [warningMsg, setWarningMsg] = useState<string>("");
 
-  const { direction_digits } = buttonsData;
+  const { direction_digits, buttonProps } = buttonsData;
 
   const [showPopup, setShowPopup] = useState(false);
   const [fileContent, setFileContent] = useState(""); 
@@ -92,16 +92,16 @@ function CalcBase10() {
 		setNextDirectionAction("nextDirection_init");
 	  };
 
-    const generateActionButtonWrapper = (colorB: string, label: string, direction: Direction) => (
-      <ActionButtonWrapper
-        colorB={colorB}
-        label={label}
-        direction={direction}
-        onClickHandler={handleButtonClick}
-        onMouseOverHandler={handleMouseOver}
-        onMouseLeaveHandler={handleMouseLeave}
-      />
-    );
+  const generateActionButtonWrapper = (id: string) => (
+    <ActionButtonWrapper
+      colorB={buttonProps[id].color}
+      label={buttonProps[id].label}
+      direction={buttonProps[id].direction}
+      onClickHandler={handleButtonClick}
+      onMouseOverHandler={handleMouseOver}
+      onMouseLeaveHandler={handleMouseLeave}
+    />
+  );
 
   return (
     // @ts-ignore
@@ -138,31 +138,31 @@ function CalcBase10() {
           </Text>
           <VStack spacing={3} align="start">
             <HStack spacing={4}>
-              {generateActionButtonWrapper("blue", "[ 1 ]", "Direction_one")}
-              {generateActionButtonWrapper("blue", "[ 2 ]", "Direction_two")}
-              {generateActionButtonWrapper("blue", "[ 3 ]", "Direction_three")}
+              {generateActionButtonWrapper("1")}
+              {generateActionButtonWrapper("2")}
+              {generateActionButtonWrapper("3")}
             </HStack>
 
             <HStack spacing={4}>
-              {generateActionButtonWrapper("blue", "[ 4 ]", "Direction_four")}
-              {generateActionButtonWrapper("blue", "[ 5 ]", "Direction_five")}
-              {generateActionButtonWrapper("blue", "[ 6 ]", "Direction_six")}
+              {generateActionButtonWrapper("4")}
+              {generateActionButtonWrapper("5")}
+              {generateActionButtonWrapper("6")}
             </HStack>
 
             <HStack spacing={4}>
-              {generateActionButtonWrapper("blue", "[ 7 ]", "Direction_seven")}
-              {generateActionButtonWrapper("blue", "[ 8 ]", "Direction_eight")}
-              {generateActionButtonWrapper("blue", "[ 9 ]", "Direction_nine")}
+              {generateActionButtonWrapper("7")}
+              {generateActionButtonWrapper("8")}
+              {generateActionButtonWrapper("9")}
             </HStack>
 
             <HStack spacing={4}>
-              {generateActionButtonWrapper("blue", "[ 0 ]", "Direction_zero")}
-              {generateActionButtonWrapper("gray", "[ + ]", "Direction_plus")}
-              {generateActionButtonWrapper("gray", "[ = ]", "Direction_equal")}
+              {generateActionButtonWrapper("0")}
+              {generateActionButtonWrapper("+")}
+              {generateActionButtonWrapper("=")}
             </HStack>
 
             <HStack spacing={4}>
-              {generateActionButtonWrapper("gray", "[ CA ]", "Direction_clear")}
+              {generateActionButtonWrapper("CA")}
             </HStack>
           </VStack>
 
