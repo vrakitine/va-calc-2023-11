@@ -7,6 +7,7 @@ import { ActionMap } from "../../types/types";
 import { ActionMapping } from "../../types/types";
 import ActionList from "./ActionList";
 import ActionButton from "./ActionButton";
+import buttonsData from "./buttonsData";
 import ActionButtonWrapper from "./ActionButtonWrapper";
 
 import FileContentPopup from "./FileContentPopup";
@@ -23,17 +24,7 @@ function CalcBase10() {
 	const [result, setResult] = useState<string>("");
 	const [warningMsg, setWarningMsg] = useState<string>("");
 
-  const direction_digits = [
-    "Direction_zero",
-    "Direction_one",
-    "Direction_two",
-    "Direction_three",
-    "Direction_four",
-    "Direction_five",
-    "Direction_six",
-    "Direction_seven",
-    "Direction_eight",
-    "Direction_nine"];
+  const { direction_digits } = buttonsData;
 
   const [showPopup, setShowPopup] = useState(false);
   const [fileContent, setFileContent] = useState(""); 
