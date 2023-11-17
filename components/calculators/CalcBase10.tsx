@@ -101,6 +101,17 @@ function CalcBase10() {
 		setNextDirectionAction("nextDirection_init");
 	  };
 
+    const generateActionButtonWrapper = (colorB: string, label: string, direction: Direction) => (
+      <ActionButtonWrapper
+        colorB={colorB}
+        label={label}
+        direction={direction}
+        onClickHandler={handleButtonClick}
+        onMouseOverHandler={handleMouseOver}
+        onMouseLeaveHandler={handleMouseLeave}
+      />
+    );
+
   return (
     // @ts-ignore
     <VStack p={2}>
@@ -136,123 +147,31 @@ function CalcBase10() {
           </Text>
           <VStack spacing={3} align="start">
             <HStack spacing={4}>
-              <ActionButtonWrapper
-                colorB="blue"
-                label="[ 1 ]"
-                direction="Direction_one"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
-              <ActionButtonWrapper
-                colorB="blue"
-                label="[ 2 ]"
-                direction="Direction_two"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
-              <ActionButtonWrapper
-                colorB="blue"
-                label="[ 3 ]"
-                direction="Direction_three"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
+              {generateActionButtonWrapper("blue", "[ 1 ]", "Direction_one")}
+              {generateActionButtonWrapper("blue", "[ 2 ]", "Direction_two")}
+              {generateActionButtonWrapper("blue", "[ 3 ]", "Direction_three")}
             </HStack>
 
             <HStack spacing={4}>
-              <ActionButtonWrapper
-                colorB="blue"
-                label="[ 4 ]"
-                direction="Direction_four"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
-              <ActionButtonWrapper
-                colorB="blue"
-                label="[ 5 ]"
-                direction="Direction_five"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
-              <ActionButtonWrapper
-                colorB="blue"
-                label="[ 6 ]"
-                direction="Direction_six"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
+              {generateActionButtonWrapper("blue", "[ 4 ]", "Direction_four")}
+              {generateActionButtonWrapper("blue", "[ 5 ]", "Direction_five")}
+              {generateActionButtonWrapper("blue", "[ 6 ]", "Direction_six")}
             </HStack>
 
             <HStack spacing={4}>
-              <ActionButtonWrapper
-                colorB="blue"
-                label="[ 7 ]"
-                direction="Direction_seven"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
-              <ActionButtonWrapper
-                colorB="blue"
-                label="[ 8 ]"
-                direction="Direction_eight"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
-              <ActionButtonWrapper
-                colorB="blue"
-                label="[ 9 ]"
-                direction="Direction_nine"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
+              {generateActionButtonWrapper("blue", "[ 7 ]", "Direction_seven")}
+              {generateActionButtonWrapper("blue", "[ 8 ]", "Direction_eight")}
+              {generateActionButtonWrapper("blue", "[ 9 ]", "Direction_nine")}
             </HStack>
 
             <HStack spacing={4}>
-              <ActionButtonWrapper
-                variantB="gray"
-                colorB="teal"
-                label="[ 0 ]"
-                direction="Direction_zero"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
-              <ActionButtonWrapper
-                colorB="gray"
-                label="[ + ]"
-                direction="Direction_plus"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
-              <ActionButtonWrapper
-                colorB="gray"
-                label="[ = ]"
-                direction="Direction_equal"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
+              {generateActionButtonWrapper("blue", "[ 0 ]", "Direction_zero")}
+              {generateActionButtonWrapper("gray", "[ + ]", "Direction_plus")}
+              {generateActionButtonWrapper("gray", "[ = ]", "Direction_equal")}
             </HStack>
 
             <HStack spacing={4}>
-              <ActionButtonWrapper
-                colorB="gray"
-                label="[ CA ]"
-                direction="Direction_clear"
-                onClickHandler={handleButtonClick}
-                onMouseOverHandler={handleMouseOver}
-                onMouseLeaveHandler={handleMouseLeave}
-              />
+              {generateActionButtonWrapper("gray", "[ CA ]", "Direction_clear")}
             </HStack>
           </VStack>
 
