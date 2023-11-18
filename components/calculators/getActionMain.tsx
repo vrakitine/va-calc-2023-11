@@ -27,8 +27,13 @@ function getActionMain (
   warningMsg: string,
   setWarningMsg: React.Dispatch<React.SetStateAction<string>>,
   fileContent: string, 
-  setFileContent: React.Dispatch<React.SetStateAction<string>>
+  setFileContent: React.Dispatch<React.SetStateAction<string>>,
+  setActionsLines: React.Dispatch<React.SetStateAction<[]>>,
+  setActionsText: React.Dispatch<React.SetStateAction<string>>
   ): void {
+
+    const { getActionsBlockFromScriptByAction } = require('./calcUtils');
+
     console.log("Click!!!");
     console.log("[-getActionMain-]");
     console.log("[" + direction + "]");
@@ -39,17 +44,11 @@ function getActionMain (
     // @ts-ignore
     const nextAction = vaScript[currentAction][direction] as VaScriptAction;
 
-    // var temp = getActionsBlockFromScriptByAction(nextAction);
-    // const actionLines = temp.split("\n");
-    // setActionsLines(actionLines);
-    // setActionsText(temp);
-
     if (vaScript.hasOwnProperty(nextAction)) {
       console.log("currentAction in case:[" + nextAction + "]");
 
       actionFunctions[nextAction](operandOne, operandTwo, setOperandOne, setOperandTwo, setResult, setWarningMsg);
 
-      
     } else {
       switch (nextAction) {
         default:
@@ -63,6 +62,13 @@ function getActionMain (
     setPreviousAction(currentAction);
     setCurrentAction(nextAction);
 
+    //////////////////////////////////////////////////////////////////
+
+    // get Actions Block From Script By Action
+    var temp = getActionsBlockFromScriptByAction(nextAction);
+    const actionLines = temp.split("\n");
+    setActionsLines(actionLines);
+    setActionsText(temp);
 
     // Specify the path to the text file in the public folder currentAction
     const filePath = './Actions/' + nextAction + '.tsx';

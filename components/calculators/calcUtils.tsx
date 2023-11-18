@@ -9,7 +9,7 @@ import { ActionMapping } from "../../types/types";
 module.exports = { getActionsBlockFromScriptByAction };
 
 function getActionsBlockFromScriptByAction(action: VaScriptAction): string {
-    let directionMappings = vaScript[action] as ActionMapping;
+    let directionMappings = vaScript[action] as Record<string, VaScriptAction>;
     let resultString: string = "";
   
     for (const key in directionMappings) {
