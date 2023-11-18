@@ -46,7 +46,9 @@ function CalcBase10() {
         operandTwo, setOperandTwo,
         result, setResult,
         warningMsg, setWarningMsg,
-        fileContent, setFileContent as React.Dispatch<React.SetStateAction<string>>
+        fileContent, setFileContent as React.Dispatch<React.SetStateAction<string>>,
+        setActionsLines as React.Dispatch<React.SetStateAction<[]>>,
+        setActionsText as React.Dispatch<React.SetStateAction<string>>
     );
   }
 
