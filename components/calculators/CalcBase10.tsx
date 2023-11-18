@@ -34,8 +34,8 @@ function CalcBase10() {
   const closePopup = () => {setShowPopup(false);};
 
 
-	//const [actionsText, setActionsText] = useState<string>("actionsText_init");
-	//const [actionLines, setActionsLines] = useState<string[]>([]);
+	const [actionsText, setActionsText] = useState<string>("actionsText_init");
+	const [actionLines, setActionsLines] = useState<string[]>([]);
 
   function getAction(direction: Direction): void {
     getActionMain(direction, 
@@ -175,11 +175,11 @@ function CalcBase10() {
             <small>currentAction:</small>[{currentAction}]
           </p> */}
         </div>
-        {/* <div className="">
+         <div className="">
           <Text as="i" fontSize="12px" color="blue">
             <ActionList actionData={actionLines} nextDirectionAction={nextDirectionAction} />
           </Text>
-        </div> */}
+        </div> 
       </Stack>
     </VStack>
   );
