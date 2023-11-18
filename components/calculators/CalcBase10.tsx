@@ -7,6 +7,8 @@ import { ActionMap } from "../../types/types";
 import { ActionMapping } from "../../types/types";
 import ActionList from "./ActionList";
 import ActionButton from "./ActionButton";
+import buttonsData from "./buttonsData";
+import ActionButtonWrapper from "./ActionButtonWrapper";
 
 import FileContentPopup from "./FileContentPopup";
 
@@ -22,17 +24,7 @@ function CalcBase10() {
 	const [result, setResult] = useState<string>("");
 	const [warningMsg, setWarningMsg] = useState<string>("");
 
-  const direction_digits = [
-    "Direction_zero",
-    "Direction_one",
-    "Direction_two",
-    "Direction_three",
-    "Direction_four",
-    "Direction_five",
-    "Direction_six",
-    "Direction_seven",
-    "Direction_eight",
-    "Direction_nine"];
+  const { direction_digits, buttonProps } = buttonsData;
 
   const [showPopup, setShowPopup] = useState(false);
   const [fileContent, setFileContent] = useState(""); 
@@ -100,6 +92,17 @@ function CalcBase10() {
 		setNextDirectionAction("nextDirection_init");
 	  };
 
+  const generateActionButtonWrapper = (direction: Direction) => (
+    <ActionButtonWrapper
+      colorB={buttonProps[direction as keyof typeof buttonProps].color}
+      label={buttonProps[direction as keyof typeof buttonProps].label}
+      direction={direction}
+      onClickHandler={handleButtonClick}
+      onMouseOverHandler={handleMouseOver}
+      onMouseLeaveHandler={handleMouseLeave}
+    />
+  );
+
   return (
     // @ts-ignore
     <VStack p={2}>
@@ -135,123 +138,31 @@ function CalcBase10() {
           </Text>
           <VStack spacing={3} align="start">
             <HStack spacing={4}>
-              <ActionButton
-                colorB="blue"
-                label="[ 1 ]"
-                direction="Direction_one"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
-              <ActionButton
-                colorB="blue"
-                label="[ 2 ]"
-                direction="Direction_two"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
-              <ActionButton
-                colorB="blue"
-                label="[ 3 ]"
-                direction="Direction_three"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
+              {generateActionButtonWrapper("Direction_one")}
+              {generateActionButtonWrapper("Direction_two")}
+              {generateActionButtonWrapper("Direction_three")}
             </HStack>
 
             <HStack spacing={4}>
-              <ActionButton
-                colorB="blue"
-                label="[ 4 ]"
-                direction="Direction_four"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
-              <ActionButton
-                colorB="blue"
-                label="[ 5 ]"
-                direction="Direction_five"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
-              <ActionButton
-                colorB="blue"
-                label="[ 6 ]"
-                direction="Direction_six"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
+              {generateActionButtonWrapper("Direction_four")}
+              {generateActionButtonWrapper("Direction_five")}
+              {generateActionButtonWrapper("Direction_six")}
             </HStack>
 
             <HStack spacing={4}>
-              <ActionButton
-                colorB="blue"
-                label="[ 7 ]"
-                direction="Direction_seven"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
-              <ActionButton
-                colorB="blue"
-                label="[ 8 ]"
-                direction="Direction_eight"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
-              <ActionButton
-                colorB="blue"
-                label="[ 9 ]"
-                direction="Direction_nine"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
+              {generateActionButtonWrapper("Direction_seven")}
+              {generateActionButtonWrapper("Direction_eight")}
+              {generateActionButtonWrapper("Direction_nine")}
             </HStack>
 
             <HStack spacing={4}>
-              <ActionButton
-                variantB="outline"
-                colorB="teal"
-                label="[ 0 ]"
-                direction="Direction_zero"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
-              <ActionButton
-                colorB="gray"
-                label="[ + ]"
-                direction="Direction_plus"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
-              <ActionButton
-                colorB="gray"
-                label="[ = ]"
-                direction="Direction_equal"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
+              {generateActionButtonWrapper("Direction_zero")}
+              {generateActionButtonWrapper("Direction_plus")}
+              {generateActionButtonWrapper("Direction_equal")}
             </HStack>
 
             <HStack spacing={4}>
-              <ActionButton
-                colorB="gray"
-                label="[ CA ]"
-                direction="Direction_clear"
-                onClick={(direction: Direction) => handleButtonClick(direction)}
-  				      onMouseOver={(direction: Direction) => handleMouseOver(direction)}
-  				      onMouseLeave={() => handleMouseLeave()}
-              />
+              {generateActionButtonWrapper("Direction_clear")}
             </HStack>
           </VStack>
 
