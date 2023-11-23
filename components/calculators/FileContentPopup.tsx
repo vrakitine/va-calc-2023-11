@@ -14,7 +14,6 @@ function FileContentPopup({ content, onClose }: FileContentPopupProps) {
       </div>
     </div>
   );
-  );
 }
 
 export default FileContentPopup;
