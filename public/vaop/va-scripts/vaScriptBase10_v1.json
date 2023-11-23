@@ -1,6 +1,7 @@
 {
   "Action_init":{
      "Direction_init":"Action_init",
+    "nextDirection_init":"Action_init",
      "Direction_zero":"Action_operand_1_attach_zero",
      "Direction_one":"Action_operand_1_attach_one",
      "Direction_two":"Action_operand_1_attach_two",     
@@ -19,6 +20,7 @@
   },
   "Action_operand_1_attach_zero":{
     "Direction_init":"Action_init",
+    "nextDirection_init":"Action_init",
     "Direction_zero":"Action_operand_1_attach_zero",
      "Direction_one":"Action_operand_1_attach_one",
      "Direction_two":"Action_operand_1_attach_two",
@@ -54,6 +56,7 @@
 
   "Action_operand_1_attach_two":{
     "Direction_init":"Action_init",
+    "nextDirection_init":"Action_init",
     "Direction_zero":"Action_operand_1_attach_zero",
     "Direction_one":"Action_operand_1_attach_one",
     "Direction_two":"Action_operand_1_attach_two",
