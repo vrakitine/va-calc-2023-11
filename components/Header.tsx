@@ -12,7 +12,7 @@ import {
     InputLeftElement,
   } from "@chakra-ui/react";
   import { FiBell, FiSearch } from "react-icons/fi";
-  import { Logo } from "./Logo";
+  //import { Logo } from "./Logo";
   
   export const Header = () => (
     <Box as="section" borderBottomWidth="1px" bg="bg.surface" minH={50}>
