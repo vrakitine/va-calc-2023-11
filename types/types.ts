@@ -40,7 +40,8 @@ export type VaScriptAction =
   | "Direction_nine"
   | "Direction_plus"
   | "Direction_equal"
-  | "Direction_clear";
+  | "Direction_clear"
+  | "Direction_timeout3";
 
   export type ActionMapping = {
     [key in Direction]: VaScriptAction;
