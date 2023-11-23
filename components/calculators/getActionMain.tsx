@@ -42,7 +42,7 @@ function getActionMain (
     setWarningMsg("");
     
     // @ts-ignore
-    const nextAction = vaScript[currentAction][direction] as VaScriptAction;
+    const nextAction = vaScript[currentAction][direction as Direction] as VaScriptAction;
 
     if (vaScript.hasOwnProperty(nextAction)) {
       console.log("currentAction in case:[" + nextAction + "]");

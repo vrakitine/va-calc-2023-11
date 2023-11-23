@@ -1,5 +1,6 @@
 import { Box, BoxProps, Link, Flex } from "@chakra-ui/react";
 
+
 export const Footer = (props: BoxProps) => {
   const vaopUrl =
     "https://vaop.notion.site/Main-c505f1e727bd4779b097f7fd203024d6";
