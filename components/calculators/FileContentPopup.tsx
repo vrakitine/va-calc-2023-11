@@ -1,6 +1,11 @@
 import React from "react";
 
-function FileContentPopup({ content , onClose }) {
+interface FileContentPopupProps {
+  content: string; // Specify the type for the 'content' parameter
+  onClose: () => void; // Specify the type for the 'onClose' parameter, assuming it's a function with no arguments that returns 'void'
+}
+
+function FileContentPopup({ content, onClose }: FileContentPopupProps) {
   return (
     <div className="popup">
       <div className="popup-content">
@@ -9,6 +14,8 @@ function FileContentPopup({ content , onClose }) {
       </div>
     </div>
   );
+  );
 }
 
 export default FileContentPopup;
+
